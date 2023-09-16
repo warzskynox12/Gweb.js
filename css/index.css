@@ -1,3 +1,182 @@
-body{
+* {
+    margin: 0;
+    font-family: sans-serif;
     background-color: black;
+}
+video{
+    display: flex;
+    align-items: center;
+  }
+.titre {
+    display: flex;
+    font-size: 60px;
+    font-weight: bold;
+    justify-content: center;
+    color: #BDA039;
+    margin-bottom: 20px;
+}
+
+body {
+    display: grid;
+    grid-template-rows: 0.75fr 5fr 0.5fr;
+    grid-template-areas: "Header" "Main" "Footer";
+    margin: 0;
+}
+
+.main {
+    grid-area: Main;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+}
+
+.header {
+    position: fixed;
+    grid-area: Header;
+    width: 100%;
+    margin: 0;
+    z-index: 10000000;
+}
+
+.footer {
+    grid-area: Footer;
+    width: 100%;
+    color: #fff;
+    border-top: #fff solid 2px;
+    z-index: 100000;
+}
+
+.sidenav {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    border-bottom: #fff solid 2px;
+}
+
+.sidenav button {
+    border: none;
+    color: #fff;
+    font-size: 20px;
+}
+
+.close {
+    display: none;
+    cursor: pointer;
+}
+
+.titre-m {
+    display: none;
+}
+.menu-tel {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+@media screen and (max-width: 758px) {
+    .titre {
+        display: flex;
+        font-size: 60px;
+        font-weight: bold;
+        justify-content: center;
+        color: #BDA039;
+        margin-bottom: 20px;
+    }
+
+    /* Sidenav menu */
+    .sidenav {
+        display: flex;
+        height: 100vh;
+        width: 80%;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: -80%;
+        background-color: #000;
+        transition: left 0.5s ease;
+    }
+
+    .menu-tel {
+        display: grid;
+        grid-template-rows: 1fr 3fr 1fr 1fr 1fr 1fr 1fr 2fr;
+        justify-content:initial;
+        width: 100%;
+        height: 100%;
+    }
+    body{
+        grid-template-rows: 1fr 6fr 0.75fr;
+    }
+    .header{
+        border-bottom: #fff solid 2px;
+    }
+    .sidenav button {
+        padding-left: 10px;
+        display: flex;
+        height: 100%;
+        width: 100%;
+        justify-content: start;
+        align-items: center;
+        border: none;
+        border-top: #fff solid 2px;
+        color: #fff;
+        font-size: 20px;
+    }
+
+    .sidenav span {
+        font-weight: bold;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 60px;
+        color: #BDA039;
+    }
+
+    /* Sidenav menu links */
+    .sidenav a {
+        padding: 0px 0px 0px 20px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #fff;
+        transition: 0.3s;
+    }
+
+    /* Active class */
+    .sidenav.active {
+        left: 0;
+        border-right: #fff solid;
+        z-index: 100%;
+    }
+
+    /* Close btn */
+    .sidenav .close {
+        top: 0;
+        font-size: 70px;
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    /* Icône burger */
+    .burger-icon span {
+        display: block;
+        width: 35px;
+        height: 5px;
+        background-color: #fff;
+        margin: 6px 0;
+    }
+
+    #openBtn {
+        position: fixed;
+        padding: 16px 10px 0px 20px;
+        cursor: pointer;
+    }
+    .titre{
+        margin:10px 0;
+    }
+    .main{
+        margin: 0;
+    }
+
 }

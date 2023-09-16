@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../Delta_skynox12/css/index.css">
 </head>
+
+
+<header class="header">
+    <a id="openBtn">
+        <span class="burger-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+    </a>
+    <div class="titre">
+        <img src="../Delta_skynox12/public/107144928.png" alt="" height="40px" width="40px">
+        <span>Delta_skynox12</span>
+    </div>
+    <div id="mySidenav" class="sidenav">
+        <div class="menu-tel">
+            <a id="closeBtn" class="close">×</a>
+            <span class="titre-m">Menu</span>
+            <button onclick="loadPage('./html/main.html')" id="button-menu" class="main-m">Home</button>
+            <button onclick="loadPage('./html/mq.html')" id="button-menu" class="mq-m">Mes qualités</button>
+            <button onclick="loadPage('./html/po.html')" id="button-menu" class="po-m">Portfolio</button>
+            <button onclick="loadPage('./html/pn.html')" id="button-menu" class="pe-m">Présentation</button>
+            <button onclick="loadPage('./html/mc.html')" id="button-menu" class="nc-m">Ne contacter</button>
+        </div>
+    </div>
+</header>
+
 <body>
-    
+    <div id="content" class="main"></div>
 </body>
+
+<footer class="footer">
+    coucou
+</footer>
+
+<script src="../Delta_skynox12/js/index.js"></script>
+
 </html>
