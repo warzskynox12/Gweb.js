@@ -13,3 +13,19 @@ function loadPage(pageName) {
   document.addEventListener('DOMContentLoaded', function () {
     loadPage('/html/main');
   });
+  var sidenav = document.getElementById("mySidenav");
+  var openBtn = document.getElementById("openBtn");
+  var closeBtn = document.getElementById("closeBtn");
+  
+  openBtn.onclick = openNav;
+  closeBtn.onclick = closeNav;
+  
+  function openNav() {
+    sidenav.classList.add("active");
+    sidenav.classList.remove("close-nav");
+  }
+  
+  function closeNav() {
+    sidenav.classList.remove("active");
+    sidenav.classList.add("close-nav");
+  }  
