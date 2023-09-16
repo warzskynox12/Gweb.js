@@ -17,7 +17,7 @@ video{
     color: #e32a14;
     margin-top: 20px;
     margin-bottom: 20px;
-    justify-content:space-between;
+    justify-content:space-evenly;
 }
 #openBtn {
     display: none;
