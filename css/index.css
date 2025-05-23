@@ -7,7 +7,15 @@ video{
     display: flex;
     align-items: center;
   }
-.titre {
+.titre button{
+    border: none;
+    font-size: 60px;
+    align-items: center;
+    color: #e32a14;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.titre{
     display: flex;
     font-size: 60px;
     font-weight: bold;
@@ -85,9 +93,7 @@ body {
     width: 80px;
     height: 80px;
 }
-.titre span{
-    margin-left: 25px;
-}
+
 
 @media screen and (max-width: 758px) {
     .titre {
