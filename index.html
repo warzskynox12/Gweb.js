@@ -9,35 +9,32 @@
     <link rel="stylesheet" href="./css/index.css">
 </head>
 
-
-<header class="header">
-    <div class="titre">
-        <a id="openBtn">
-            <span class="burger-icon">
-                <span></span>
-                <span></span>
-                <span></span>
-            </span>
-        </a>
-        <button onclick="loadPage('./html/main.html')"><span>Gweb.js</span></button>
-        <img src="./public/107144928.png" class="img-profil" height="40px" width="40px">
-    </div>
-    <div id="mySidenav" class="sidenav">
-        <div class="menu-tel">
-            <a id="closeBtn" class="close">×</a>
-            <span class="titre-m">Menu</span>
-            <button onclick="loadPage('./html/main.html')" id="button-menu" class="main-m">Home</button>
-            <button onclick="loadPage('./html/mq.html')" id="button-menu" class="mq-m">Mes qualités</button>
-            <button onclick="loadPage('./html/po.html')" id="button-menu" class="po-m">Portfolio</button>
-            <button onclick="loadPage('./html/pn.html')" id="button-menu" class="pe-m">Présentation</button>
-            <button onclick="loadPage('./html/mc.html')" id="button-menu" class="nc-m">Ne contacter</button>
-        </div>
-    </div>
-</header>
-
 <body>
-    <div id="content" class="main"></div>
+    <header class="header">
+        <div class="bando">
+            <div class="titre">
+                <a id="openBtn" class="burger">
+                    <span class="burger-icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </span>
+                </a>
+            <button onclick="loadPage('./html/main.html')" class="titre">Gweb.js</button>
+            <img src="./public/107144928-modified.png" class="logo" >
+        </div>
+        <div id="mySidenav" class="sidenav">
+            <button onclick="loadPage('./html/main.html')" class="main-m">Home</button>
+            <button onclick="loadPage('./html/mq.html')" class="mq-m">Mes qualités</button>
+            <button onclick="loadPage('./html/po.html')" class="po-m">Portfolio</button>
+            <button onclick="loadPage('./html/pn.html')" class="pe-m">Présentation</button>
+            <button onclick="loadPage('./html/mc.html')" class="nc-m">Me contacter</button>
+        </div>
+    </header>
+
+    <main id="content" class="main"></main>
+
+    <script src="./js/index.js"></script>
 </body>
 
-<script src="./js/index.js"></script>
 </html>

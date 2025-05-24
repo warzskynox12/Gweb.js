@@ -1,215 +1,103 @@
 * {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: sans-serif;
-    background-color: #fff;
 }
-video{
-    display: flex;
-    align-items: center;
-  }
-.titre button{
+button {
     border: none;
-    font-size: 60px;
-    align-items: center;
-    color: #e32a14;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-.titre{
-    display: flex;
-    font-size: 60px;
-    font-weight: bold;
-    max-width: 100%;
-    width: 100%;
-    align-items: center;
-    color: #e32a14;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    justify-content:space-evenly;
-}
-#openBtn {
-    display: none;
-}
-body {
-    display: grid;
-    grid-template-rows: 0.75fr 5fr 0.5fr;
-    grid-template-areas: "Header" "Main" "Footer";
-    margin: 0;
+    background: none;
 }
 
-.main {
-    grid-area: Main;
-    width: 100%;
-    height: 100%;
-    color: #000;
+body {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-template-areas: 
+        "Header"
+        "Main";
+    height: 100vh;
+    background-color: #fff;
 }
 
 .header {
-    position: fixed;
     grid-area: Header;
+    display: grid;
     width: 100%;
-    margin: 0;
-    z-index: 10000000;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+        "Bando"
+        "Menu";
+    color: #fff;
+    text-align: center;
 }
-
-.footer {
-    grid-area: Footer;
-    width: 100%;
-    color: #000;
-    border-top: #000 solid 2px;
-    z-index: 100000;
-}
-
 .sidenav {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    border-bottom: #000 solid 2px;
+    grid-area: Menu;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "Main-m Mq-m Po-m Pe-m Nc-m";
+    
 }
-
-.sidenav button {
-    border: none;
-    color: #000;
-    font-size: 20px;
-}
-
 .close {
     display: none;
-    cursor: pointer;
+}  
+.bando {
+    grid-area: Bando;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 0fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "Burger Titre Logo";
+    place-items: center;
+    margin-top: 2vh;
+    margin-bottom: 5vh;
 }
-
-.titre-m {
+.main-m {
+    grid-area: Main-m;
+    display: block;
+}
+.mq-m {
+    grid-area: Mq-m;
+    display: block;
+}
+.po-m {
+    grid-area: Po-m;
+    display: block;
+}
+.pe-m {
+    grid-area: Pe-m;
+    display: block;
+}
+.nc-m {
+    grid-area: Nc-m;
+    display: block;
+}
+.main-m , .nc-m, .po-m, .pe-m, .mq-m {
+    font-size: 2vw;
+    font-weight: bold;
+}
+.titre {
+    grid-area: Titre;
+    display: block;
+    align-items: center;
+    justify-content: center;
+    color: #FF0000;
+    font-weight: bold;
+    font-size: 4vw;
+}
+.logo {
+    grid-area: Logo;
+    display: block;
+    place-items: center;
+    align-items: center;
+    width: 7vw;
+    height: 7vw;
+    
+}
+.burger {
+    grid-area: Burger;
     display: none;
 }
-.menu-tel {
-    display: flex;
-    width: 100%;
-    justify-content: space-evenly;
-}
-.img-profil{
-    margin-right: 25px;
-    border-radius: 50%;
-    border: #000 solid 2px;
-    width: 80px;
-    height: 80px;
-}
 
-
-@media screen and (max-width: 758px) {
-    .titre {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-        font-size: 30px;
-        font-weight: bold;
-        justify-content: space-evenly;
-        color: #e32a14;
-        margin-bottom: 20px;
-    }
-
-    /* Sidenav menu */
-    .sidenav {
-        display: flex;
-        height: 100vh;
-        width: 80%;
-        position: fixed;
-        z-index: 1;
-        top: 0;
-        left: -80%;
-        background-color: #fff;
-        transition: left 0.5s ease;
-    }
-
-    .menu-tel {
-        display: grid;
-        grid-template-rows: 1fr 3fr 1fr 1fr 1fr 1fr 1fr 2fr;
-        justify-content:initial;
-        width: 100%;
-        height: 100%;
-    }
-    body{
-        grid-template-rows: 1fr 6fr 0.75fr;
-    }
-    .header{
-        border-bottom: #000 solid 2px;
-    }
-    .sidenav button {
-        padding-left: 10px;
-        display: flex;
-        height: 100%;
-        width: 100%;
-        justify-content: start;
-        align-items: center;
-        border: none;
-        border-top: #000 solid 2px;
-        color: #000;
-        font-size: 20px;
-    }
-
-    .sidenav span {
-        font-weight: bold;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 60px;
-        color: #e32a14;
-    }
-
-    /* Sidenav menu links */
-    .sidenav a {
-        padding: 0px 0px 0px 20px;
-        text-decoration: none;
-        font-size: 25px;
-        color: #000;
-        transition: 0.3s;
-    }
-
-    /* Active class */
-    .sidenav.active {
-        left: 0;
-        border-right: #000 solid;
-        z-index: 100%;
-    }
-
-    /* Close btn */
-    .sidenav .close {
-        top: 0;
-        font-size: 70px;
-        display: flex;
-        justify-content: start;
-        align-items: center;
-        overflow: hidden;
-    }
-
-    /* Icône burger */
-    .burger-icon span {
-        display: block;
-        width: 35px;
-        height: 5px;
-        background-color: #000;
-        margin: 6px 0;
-    }
-
-    #openBtn {
-        cursor: pointer;
-        display: flex;
-    }
-    .titre{
-        margin:10px 0;
-    }
-    .main{
-        margin: 0;
-    }
-    .img-profil{
-        margin-right: 0px;
-        border-radius: 50%;
-        border: #000 solid 2px;
-        width: 40px;
-        height: 40px;
-    }
-    .titre span{
-        margin-left: 0px;
-    }
-}
