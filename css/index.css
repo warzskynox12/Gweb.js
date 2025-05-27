@@ -47,6 +47,7 @@ body {
     align-items: center;
     place-items: center; /* Centre les éléments verticalement */
     padding: 0 10px;
+    margin-bottom: 2vh;
 }
 
 .titre {
