@@ -16,12 +16,29 @@ function loadPage(pageName) {
 }
 
 const sidenav = document.getElementById("mySidenav");
-const openBtn = document.getElementById("openBtn");
-const closeBtn = document.getElementById("closeBtn");
+const openBtn = document.getElementById("nav-icon1");
 
-openBtn.addEventListener('click', () => sidenav.classList.add("active"));
-closeBtn.addEventListener('click', () => sidenav.classList.remove("active"));
+if (openBtn) {
+    openBtn.addEventListener('click', () => {
+        // Utilise toggle pour basculer entre ouvrir et fermer
+        sidenav.classList.toggle("active");
+        openBtn.classList.toggle("open"); // Ajoute ou retire la classe "open"
+    });
+}
+
+if (closeBtn) {
+    closeBtn.addEventListener('click', () => {
+        sidenav.classList.remove("active");
+        openBtn.classList.remove("open"); // Retire la classe lorsque le menu est fermé
+    });
+}
 
 function closeNav() {
     sidenav.classList.remove("active");
+    openBtn.classList.remove("open"); // Retire la classe lorsque le menu est fermé
 }
+$(document).ready(function(){
+	$('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function(){
+		$(this).toggleClass('open');
+	});
+});
