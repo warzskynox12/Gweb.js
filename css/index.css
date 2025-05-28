@@ -35,6 +35,7 @@ body {
     background-color: #333;
     color: #fff;
     z-index: 1000;
+    padding: 2vh 0;
 }
 
 .bando {
@@ -56,7 +57,7 @@ body {
     place-items: center; /* Centre le titre horizontalement et verticalement */
     color: #FF0000;
     font-weight: bold;
-    font-size: 12vw;
+    font-size: 5vw;
     text-align: center;
 }
 
@@ -64,8 +65,8 @@ body {
     grid-area: Logo;
     display: grid;
     place-items: center; /* Centre le logo horizontalement et verticalement */
-    width: 12vw;
-    height: 12vw;
+    width: 8vw;
+    height: 8vw;
     border: 2px solid #000;
     border-radius: 50%;
 }
@@ -73,6 +74,8 @@ body {
 .sidenav {
     grid-area: Menu;
     display: grid;
+    padding: 0 2vh;
+    gap: 2vh;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto;
     grid-template-areas: 
@@ -118,6 +121,7 @@ body {
         align-items: center; /* Centre les éléments verticalement */
     }
     .header {
+        padding: 1vh 0;
         height: 10vh;
         grid-template-rows: 1fr;
         grid-template-columns: 1fr;
@@ -127,11 +131,15 @@ body {
     .logo {
         height: 6vh;/* Centre le logo verticalement */
     }
+    .titre {
+        font-size: 5vh;
+    }
 
     .sidenav {
         display: grid;
         grid-template-areas: "Main-m ""Mq-m"" Po-m ""Pe-m"" Nc-m";
         grid-template-columns: 1fr;
+        gap: 0;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr; /* Une ligne pour chaque bouton */
         position: fixed;
         top: 0;
@@ -143,7 +151,7 @@ body {
         z-index: 2000;
         transition: left 0.3s ease;
         grid-template-rows: repeat(5, auto); /* Une ligne par bouton */
-        padding: 20px;
+        padding: 3vh;
     }
     .logo{
         width: 8vh;
