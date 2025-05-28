@@ -88,6 +88,7 @@
     }
 
     .titre-main1 {
+        display: block;
         grid-area: titre-main1; /* Assure que le titre est dans la bonne zone */
         font-size: 6vh;
         padding-bottom: 1vh;
