@@ -52,7 +52,7 @@ body {
 
 .titre {
     grid-area: Titre;
-    display: grid;
+    display: grid; 
     place-items: center; /* Centre le titre horizontalement et verticalement */
     color: #FF0000;
     font-weight: bold;
