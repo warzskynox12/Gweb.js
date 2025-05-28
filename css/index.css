@@ -28,45 +28,45 @@ body {
     display: grid;
     width: 100%;
     grid-template-rows: auto;
-    gap: 2vh;
+    gap: 1vh;
     grid-template-areas: 
         "Bando"
         "Menu";
     background-color: #333;
     color: #fff;
     z-index: 1000;
-    padding: 2vh 0;
+    padding: 1vh 0;
 }
 
 .bando {
     grid-area: Bando;
     display: grid;
     width: 100%;
-    grid-template-columns: 0fr 1fr 1fr; /* Ajuste les colonnes pour équilibrer les espaces */
+    grid-template-columns: 0fr 1fr 1fr; 
     grid-template-areas: 
         "Burger Titre Logo";
     align-items: center;
-    place-items: center; /* Centre les éléments verticalement */
-    padding: 0 10px;
+    place-items: center; 
+    padding: 0 1vh;
     margin-bottom: 2vh;
 }
 
 .titre {
     grid-area: Titre;
     display: grid; 
-    place-items: center; /* Centre le titre horizontalement et verticalement */
+    place-items: center; 
     color: #FF0000;
     font-weight: bold;
-    font-size: 5vw;
+    font-size: 4vw;
     text-align: center;
 }
 
 .logo {
     grid-area: Logo;
     display: grid;
-    place-items: center; /* Centre le logo horizontalement et verticalement */
-    width: 8vw;
-    height: 8vw;
+    place-items: center; 
+    width: 6vw;
+    height: 6vw;
     border: 2px solid #000;
     border-radius: 50%;
 }
@@ -99,7 +99,7 @@ body {
 }
 .main-m , .nc-m, .po-m, .pe-m, .mq-m {
     display: block;
-    font-size: 2vw;
+    font-size: 1vw;
     font-weight: bold;
     color: #FFF;
     border: 2px solid #FFF;
@@ -107,7 +107,8 @@ body {
 
 .main {
     grid-area: Main;
-    padding: 20px;
+    width: 100%;
+    height: 100%;
     background-color: #f9f9f9;
     overflow-y: auto;
 }
