@@ -1,112 +1,162 @@
-/* Conteneur principal avec de l'espace pour ne pas passer sous le menu */
-.container-mc {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 120px 20px 40px 20px; 
-    font-family: sans-serif;
-    color: #ffffff; /* Texte en blanc pour ressortir sur ton fond sombre */
+/* Conteneur principal : 2 colonnes pour remplir l'écran */
+.div-mc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Moitié gauche / Moitié droite */
+    gap: 4vw;
+    padding: 4vh 5vw;
+    width: 100%;
+    height: 100%;
+    align-items: center;
 }
 
-/* Textes */
-.titre-mc {
-    font-size: 2.5rem;
+/* --- Colonne Gauche --- */
+.div-mc-gauche {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    gap: 4vh;
+    place-items: center;
     text-align: center;
-    margin-bottom: 10px;
-    color: #ffffff;
+}
+
+.titre-mc {
+    font-size: 5vw; /* Grand titre proportionnel à l'écran */
+    font-weight: bold;
+    color: #FF0000;
 }
 
 .desc-mc {
-    text-align: center;
-    color: #cccccc; /* Gris clair pour la description */
-    margin-bottom: 30px;
-    line-height: 1.5;
+    font-size: 1.8vw;
+    font-weight: bold;
+    color: #000;
 }
 
-.sous-titre-mc {
-    font-size: 1.5rem;
-    color: #ffffff;
-    margin-bottom: 15px;
-    text-align: center;
+/* L'image qui comble le vide */
+.img-mc-contact {
+    width: 60%;
+    height: auto;
+    border-radius: 20%; /* Mêmes arrondis que sur ton main.css */
+    border: 2px solid #000; /* Ta fameuse bordure noire */
 }
 
-/* Formulaire adapté à ta D.A. */
+/* --- Colonne Droite --- */
+.div-mc-droite {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 5vh;
+    place-items: center;
+    width: 100%;
+}
+
 .form-mc {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    background-color: rgba(255, 255, 255, 0.05); /* Fond très légèrement visible */
-    padding: 30px;
-    border: 1px solid #ffffff; /* Bordure blanche comme tes boutons de menu */
-    margin-bottom: 40px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2vh;
+    width: 80%;
+    padding: 4vh;
+    border: 2px solid #000;
+    background-color: #fff; /* Fond blanc net */
+    border-radius: 10px;
 }
 
 .input-group-mc {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
+    display: grid;
+    gap: 1vh;
 }
 
 .input-group-mc label {
+    font-size: 1.2vw;
     font-weight: bold;
-    color: #ffffff;
+    color: #000;
 }
 
 .input-group-mc input,
 .input-group-mc textarea {
-    padding: 12px;
-    background-color: #2b2b2b; /* Fond sombre pour les champs de texte */
-    border: 1px solid #ffffff; /* Bordure blanche */
-    color: #ffffff; /* Le texte tapé par l'utilisateur sera blanc */
-    font-size: 1rem;
+    padding: 1.5vh;
+    border: 2px solid #000; /* Bordures noires strictes */
+    font-size: 1vw;
     font-family: inherit;
+    background-color: #f9f9f9;
+    color: #000;
 }
 
-/* Effet quand on clique sur un champ */
 .input-group-mc input:focus,
 .input-group-mc textarea:focus {
     outline: none;
-    border-color: #ff0000; /* Bordure rouge pour rappeler le titre Gweb.js */
+    border-color: #FF0000; /* Rouge quand on clique dedans */
 }
 
-/* Bouton Envoyer raccord avec ton menu */
 .btn-mc {
-    padding: 12px 20px;
-    background-color: transparent;
-    color: #ffffff;
-    border: 1px solid #ffffff;
-    font-size: 1.1rem;
+    padding: 1.5vh 3vw;
+    background-color: #FF0000;
+    color: #FFF;
+    border: 2px solid #000;
+    font-size: 1.2vw;
     font-weight: bold;
     cursor: pointer;
+    justify-self: center;
     transition: all 0.3s ease;
 }
 
 .btn-mc:hover {
-    background-color: #ffffff;
-    color: #000000; /* Le texte passe en noir quand le fond devient blanc au survol */
+    background-color: #000;
+    color: #FFF;
 }
 
-/* Réseaux sociaux */
+/* --- Réseaux --- */
 .reseaux-mc {
     text-align: center;
+    width: 80%;
+}
+
+.sous-titre-mc {
+    font-size: 2vw;
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 2vh;
 }
 
 .liens-reseaux {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1vw;
 }
 
 .lien-mc {
     text-decoration: none;
-    color: #ffffff;
+    color: #000;
     font-weight: bold;
-    padding: 10px 15px;
-    border: 1px solid #ffffff;
+    font-size: 1vw;
+    padding: 1.5vh 0;
+    border: 2px solid #000;
+    background-color: #fff;
     transition: all 0.3s ease;
 }
 
 .lien-mc:hover {
-    background-color: #ff0000; /* Touche de rouge au survol des réseaux */
-    border-color: #ff0000;
-    color: #ffffff;
+    background-color: #FF0000;
+    color: #FFF;
+    border-color: #000;
+}
+
+/* --- RESPONSIVE MOBILE --- */
+@media screen and (max-width: 768px) {
+    .div-mc-grid {
+        grid-template-columns: 1fr; /* Sur téléphone, on remet tout sur 1 colonne */
+        padding: 2vh 4vw;
+        gap: 6vh;
+    }
+
+    .titre-mc { font-size: 8vh; }
+    .desc-mc { font-size: 3vh; }
+    .img-mc-contact { width: 80%; }
+
+    .form-mc { width: 100%; padding: 3vh; }
+    .input-group-mc label { font-size: 2.5vh; }
+    .input-group-mc input, .input-group-mc textarea { font-size: 2vh; }
+    .btn-mc { font-size: 2.5vh; width: 100%; }
+
+    .sous-titre-mc { font-size: 4vh; }
+    .reseaux-mc { width: 100%; }
+    .liens-reseaux { grid-template-columns: 1fr; gap: 2vh; }
+    .lien-mc { font-size: 2.5vh; padding: 2vh; }
 }
