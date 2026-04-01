@@ -1,13 +1,13 @@
-/* Conteneur principal - calibré pour ne pas scroller */
+/* Conteneur principal - Calqué sur ta D.A. (index.css) */
 .div-mc-main {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Deux colonnes */
+    grid-template-columns: 1fr 1fr; /* Deux colonnes comme ton accueil */
     width: 100%;
-    height: 100%; /* Prend exactement la hauteur de <main> */
-    box-sizing: border-box;
+    height: 100%; /* Remplit le <main> sans dépasser */
     padding: 2vh 4vw;
-    align-items: center; /* Centre tout verticalement */
+    align-items: center;
     justify-content: center;
+    box-sizing: border-box;
 }
 
 /* --- Côté Formulaire --- */
@@ -20,7 +20,7 @@
 }
 
 .titre-mc {
-    font-size: 6vh; /* Un peu réduit pour éviter le débordement */
+    font-size: 8vh; /* Même taille que .titre-main */
     color: #FF0000;
     font-weight: bold;
     text-align: center;
@@ -28,7 +28,7 @@
 }
 
 .p-mc {
-    font-size: 1.8vw;
+    font-size: 2vw;
     color: #000;
     font-weight: bold;
     text-align: center;
@@ -38,11 +38,12 @@
 .formulaire-mc {
     display: flex;
     flex-direction: column;
-    gap: 1.5vh;
-    width: 80%;
-    max-width: 450px;
+    gap: 2vh;
+    width: 85%;
+    max-width: 500px;
 }
 
+/* Champs de saisie avec tes bordures noires de 2px */
 .input-mc {
     border: 2px solid #000;
     padding: 1.5vh;
@@ -50,34 +51,37 @@
     background-color: transparent;
     color: #000;
     font-weight: bold;
+    font-family: sans-serif;
 }
 
 .textarea-mc {
-    height: 12vh; /* Hauteur fixe pour ne pas écraser le reste */
-    resize: none; /* Empêche l'utilisateur d'agrandir la zone et de casser la page */
+    height: 12vh; /* Hauteur limitée pour éviter le scroll */
+    resize: none;
 }
 
 .input-mc:focus {
     outline: none;
-    border-color: #FF0000;
+    border-color: #FF0000; /* Rappel du rouge au clic */
 }
 
+/* Bouton Envoyer / Mailto */
 .btn-mc {
     border: 2px solid #000;
     background-color: #FF0000;
     color: #FFF;
-    font-size: 1.5vw;
+    font-size: 1.8vw;
     font-weight: bold;
     padding: 1.5vh;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .btn-mc:hover {
     background-color: #000;
+    transform: scale(1.02);
 }
 
-/* --- Côté Visuel --- */
+/* --- Côté Visuel (Image + Réseaux) --- */
 .div-mc-visuel {
     display: flex;
     flex-direction: column;
@@ -87,10 +91,11 @@
 }
 
 .img-mc {
-    width: 60%;
-    max-height: 45vh; /* Sécurité vitale : l'image ne dépassera jamais cette hauteur */
-    object-fit: cover; /* Garde les bonnes proportions */
+    width: 65%;
+    max-height: 40vh; /* Sécurité pour que l'image ne pousse pas le layout */
+    object-fit: contain;
     border-radius: 20%;
+    border: 2px solid #000;
 }
 
 .liens-mc {
@@ -106,33 +111,34 @@
     text-decoration: none;
     padding: 1vh 2vw;
     transition: all 0.3s ease;
+    text-align: center;
 }
 
 .btn-reseau:hover {
     background-color: #FF0000;
     color: #FFF;
-    border-color: #FF0000;
+    border-color: #000;
 }
 
-/* --- RESPONSIVE MOBILE --- */
+/* --- RESPONSIVE MOBILE (768px) --- */
 @media screen and (max-width: 768px) {
-    /* Sur mobile, on accepte le scroll car les écrans sont trop petits pour tout mettre côte à côte */
     .div-mc-main {
-        grid-template-columns: 1fr; 
+        grid-template-columns: 1fr; /* Une seule colonne */
         grid-template-rows: auto auto;
         height: auto; 
-        gap: 4vh;
+        gap: 5vh;
         padding: 4vh 2vw;
     }
 
-    .titre-mc { font-size: 5vh; }
-    .p-mc { font-size: 2.5vh; }
+    .titre-mc { font-size: 6vh; }
+    .p-mc { font-size: 3vh; }
     
-    .input-mc { font-size: 2vh; padding: 1.5vh; }
+    .formulaire-mc { width: 95%; }
+    .input-mc { font-size: 2.5vh; padding: 2vh; }
     .textarea-mc { height: 15vh; }
-    .btn-mc { font-size: 2.5vh; }
-    .formulaire-mc { width: 90%; }
+    .btn-mc { font-size: 3vh; }
     
-    .img-mc { width: 50%; max-height: 30vh; }
-    .btn-reseau { font-size: 2vh; padding: 1.5vh 3vw; }
+    .img-mc { width: 60%; max-height: 30vh; }
+    .liens-mc { width: 90%; justify-content: center; }
+    .btn-reseau { font-size: 2.5vh; flex: 1; }
 }
