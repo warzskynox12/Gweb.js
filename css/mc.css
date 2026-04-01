@@ -91,7 +91,6 @@
     max-height: 45vh; /* Sécurité vitale : l'image ne dépassera jamais cette hauteur */
     object-fit: cover; /* Garde les bonnes proportions */
     border-radius: 20%;
-    border: 2px solid #000;
 }
 
 .liens-mc {
