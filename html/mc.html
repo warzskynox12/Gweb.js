@@ -1,9 +1,32 @@
-<div class="div-mc">
-    <h1 class="titre-mc">Welcome on my site wed</h1>
-    <img class="img-mc" src="https://raw.githubusercontent.com/Gdesign2023/Gdesign/refs/heads/main/public/coding.png">
-    <div class="div-mc">
-        <h1 class="sous-titre-mc">Welcome on my site wed</h1>
-        <p class="p1mc">Ce site a pour but de montrer, informer et prouver mes capacités de développeur Mais je vous appliquerai dans les différents onglets de ce site.</p>
-        <p class="p2mc">Je vous laisse naviguer sur le site pour en découvrir plus sur moi !</p>
+<div class="container-mc">
+    <h1 class="titre-mc">Me contacter</h1>
+    <p class="desc-mc">Vous avez un projet, une question, ou vous souhaitez simplement échanger ? Laissez-moi un message !</p>
+
+    <form id="contactForm" class="form-mc">
+        <div class="input-group-mc">
+            <label for="nom">Nom / Prénom</label>
+            <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
+        </div>
+
+        <div class="input-group-mc">
+            <label for="email">Adresse Email</label>
+            <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+        </div>
+
+        <div class="input-group-mc">
+            <label for="message">Votre Message</label>
+            <textarea id="message" name="message" rows="6" placeholder="Écrivez votre message ici..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-mc">Envoyer le message</button>
+    </form>
+
+    <div class="reseaux-mc">
+        <h2 class="sous-titre-mc">Mes réseaux</h2>
+        <div class="liens-reseaux">
+            <a href="#" target="_blank" class="lien-mc">GitHub</a>
+            <a href="#" target="_blank" class="lien-mc">LinkedIn</a>
+            <a href="mailto:tonadresse@email.com" class="lien-mc">Email direct</a>
+        </div>
     </div>
 </div>
