@@ -1,162 +1,139 @@
-/* Conteneur principal : 2 colonnes pour remplir l'écran */
-.div-mc-grid {
+/* Conteneur principal - calibré pour ne pas scroller */
+.div-mc-main {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Moitié gauche / Moitié droite */
-    gap: 4vw;
-    padding: 4vh 5vw;
+    grid-template-columns: 1fr 1fr; /* Deux colonnes */
     width: 100%;
-    height: 100%;
-    align-items: center;
+    height: 100%; /* Prend exactement la hauteur de <main> */
+    box-sizing: border-box;
+    padding: 2vh 4vw;
+    align-items: center; /* Centre tout verticalement */
+    justify-content: center;
 }
 
-/* --- Colonne Gauche --- */
-.div-mc-gauche {
-    display: grid;
-    grid-template-rows: auto auto auto;
-    gap: 4vh;
-    place-items: center;
-    text-align: center;
+/* --- Côté Formulaire --- */
+.div-mc-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
 .titre-mc {
-    font-size: 5vw; /* Grand titre proportionnel à l'écran */
-    font-weight: bold;
+    font-size: 6vh; /* Un peu réduit pour éviter le débordement */
     color: #FF0000;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1vh;
 }
 
-.desc-mc {
+.p-mc {
     font-size: 1.8vw;
-    font-weight: bold;
     color: #000;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 3vh;
 }
 
-/* L'image qui comble le vide */
-.img-mc-contact {
-    width: 60%;
-    height: auto;
-    border-radius: 20%; /* Mêmes arrondis que sur ton main.css */
-    border: 2px solid #000; /* Ta fameuse bordure noire */
-}
-
-/* --- Colonne Droite --- */
-.div-mc-droite {
-    display: grid;
-    grid-template-rows: auto auto;
-    gap: 5vh;
-    place-items: center;
-    width: 100%;
-}
-
-.form-mc {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2vh;
+.formulaire-mc {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
     width: 80%;
-    padding: 4vh;
+    max-width: 450px;
+}
+
+.input-mc {
     border: 2px solid #000;
-    background-color: #fff; /* Fond blanc net */
-    border-radius: 10px;
-}
-
-.input-group-mc {
-    display: grid;
-    gap: 1vh;
-}
-
-.input-group-mc label {
-    font-size: 1.2vw;
-    font-weight: bold;
-    color: #000;
-}
-
-.input-group-mc input,
-.input-group-mc textarea {
     padding: 1.5vh;
-    border: 2px solid #000; /* Bordures noires strictes */
-    font-size: 1vw;
-    font-family: inherit;
-    background-color: #f9f9f9;
+    font-size: 1.2vw;
+    background-color: transparent;
     color: #000;
+    font-weight: bold;
 }
 
-.input-group-mc input:focus,
-.input-group-mc textarea:focus {
+.textarea-mc {
+    height: 12vh; /* Hauteur fixe pour ne pas écraser le reste */
+    resize: none; /* Empêche l'utilisateur d'agrandir la zone et de casser la page */
+}
+
+.input-mc:focus {
     outline: none;
-    border-color: #FF0000; /* Rouge quand on clique dedans */
+    border-color: #FF0000;
 }
 
 .btn-mc {
-    padding: 1.5vh 3vw;
+    border: 2px solid #000;
     background-color: #FF0000;
     color: #FFF;
-    border: 2px solid #000;
-    font-size: 1.2vw;
+    font-size: 1.5vw;
     font-weight: bold;
+    padding: 1.5vh;
     cursor: pointer;
-    justify-self: center;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 .btn-mc:hover {
     background-color: #000;
-    color: #FFF;
 }
 
-/* --- Réseaux --- */
-.reseaux-mc {
-    text-align: center;
-    width: 80%;
+/* --- Côté Visuel --- */
+.div-mc-visuel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4vh;
 }
 
-.sous-titre-mc {
-    font-size: 2vw;
-    color: #000;
-    font-weight: bold;
-    margin-bottom: 2vh;
-}
-
-.liens-reseaux {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1vw;
-}
-
-.lien-mc {
-    text-decoration: none;
-    color: #000;
-    font-weight: bold;
-    font-size: 1vw;
-    padding: 1.5vh 0;
+.img-mc {
+    width: 60%;
+    max-height: 45vh; /* Sécurité vitale : l'image ne dépassera jamais cette hauteur */
+    object-fit: cover; /* Garde les bonnes proportions */
+    border-radius: 20%;
     border: 2px solid #000;
-    background-color: #fff;
+}
+
+.liens-mc {
+    display: flex;
+    gap: 2vw;
+}
+
+.btn-reseau {
+    border: 2px solid #000;
+    color: #000;
+    font-size: 1.5vw;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 1vh 2vw;
     transition: all 0.3s ease;
 }
 
-.lien-mc:hover {
+.btn-reseau:hover {
     background-color: #FF0000;
     color: #FFF;
-    border-color: #000;
+    border-color: #FF0000;
 }
 
 /* --- RESPONSIVE MOBILE --- */
 @media screen and (max-width: 768px) {
-    .div-mc-grid {
-        grid-template-columns: 1fr; /* Sur téléphone, on remet tout sur 1 colonne */
-        padding: 2vh 4vw;
-        gap: 6vh;
+    /* Sur mobile, on accepte le scroll car les écrans sont trop petits pour tout mettre côte à côte */
+    .div-mc-main {
+        grid-template-columns: 1fr; 
+        grid-template-rows: auto auto;
+        height: auto; 
+        gap: 4vh;
+        padding: 4vh 2vw;
     }
 
-    .titre-mc { font-size: 8vh; }
-    .desc-mc { font-size: 3vh; }
-    .img-mc-contact { width: 80%; }
-
-    .form-mc { width: 100%; padding: 3vh; }
-    .input-group-mc label { font-size: 2.5vh; }
-    .input-group-mc input, .input-group-mc textarea { font-size: 2vh; }
-    .btn-mc { font-size: 2.5vh; width: 100%; }
-
-    .sous-titre-mc { font-size: 4vh; }
-    .reseaux-mc { width: 100%; }
-    .liens-reseaux { grid-template-columns: 1fr; gap: 2vh; }
-    .lien-mc { font-size: 2.5vh; padding: 2vh; }
+    .titre-mc { font-size: 5vh; }
+    .p-mc { font-size: 2.5vh; }
+    
+    .input-mc { font-size: 2vh; padding: 1.5vh; }
+    .textarea-mc { height: 15vh; }
+    .btn-mc { font-size: 2.5vh; }
+    .formulaire-mc { width: 90%; }
+    
+    .img-mc { width: 50%; max-height: 30vh; }
+    .btn-reseau { font-size: 2vh; padding: 1.5vh 3vw; }
 }

@@ -1,35 +1,22 @@
-<div class="div-mc-grid">
-    <div class="div-mc-gauche">
+<div class="div-mc-main">
+    <div class="div-mc-form">
         <h1 class="titre-mc">Me contacter</h1>
-        <p class="desc-mc">Vous avez un projet ou une question ?<br>Laissez-moi un message !</p>
+        <p class="p-mc">Laissez-moi un message !</p>
         
-        <img class="img-mc-contact" src="./public/coding.png" alt="Illustration Contact">
-    </div>
-
-    <div class="div-mc-droite">
-        <form id="contactForm" class="form-mc">
-            <div class="input-group-mc">
-                <label for="nom">Nom / Prénom</label>
-                <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
-            </div>
-            <div class="input-group-mc">
-                <label for="email">Adresse Email</label>
-                <input type="email" id="email" name="email" placeholder="votre@email.com" required>
-            </div>
-            <div class="input-group-mc">
-                <label for="message">Votre Message</label>
-                <textarea id="message" name="message" rows="5" placeholder="Écrivez votre message ici..." required></textarea>
-            </div>
+        <form action="https://formspree.io/f/mqeglblz" method="POST" class="formulaire-mc">
+            <input type="text" name="nom" placeholder="Nom / Prénom" required class="input-mc">
+            <input type="email" name="email" placeholder="Adresse Email" required class="input-mc">
+            <textarea name="message" placeholder="Votre message..." required class="input-mc textarea-mc"></textarea>
             <button type="submit" class="btn-mc">Envoyer</button>
         </form>
+    </div>
 
-        <div class="reseaux-mc">
-            <h2 class="sous-titre-mc">Mes réseaux</h2>
-            <div class="liens-reseaux">
-                <a href="#" class="lien-mc">GitHub</a>
-                <a href="#" class="lien-mc">LinkedIn</a>
-                <a href="#" class="lien-mc">Email</a>
-            </div>
+    <div class="div-mc-visuel">
+        <img class="img-mc" src="./public/visuel-contact.png" alt="Mon portail de contact - Gweb.js">
+        
+        <div class="liens-mc">
+            <a href="#" class="btn-reseau">GitHub</a>
+            <a href="#" class="btn-reseau">LinkedIn</a>
         </div>
     </div>
 </div>
