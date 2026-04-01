@@ -1,187 +1,483 @@
-/* Structure de la page Contact calquée sur ta D.A. */
-.container-mc {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto;
-    grid-template-areas: 
-        "titre-mc"
-        "desc-mc"
-        "form-mc"
-        "reseaux-mc";
-    width: 100%;
-    height: 100%;
-    padding: 2vh 5vw; /* Marges en unités relatives comme dans ta D.A. */
-    align-items: center;
-    justify-content: center;
-    place-items: center;
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: sans-serif;
+
 }
 
-/* Titre principal rouge comme .titre-main */
-.titre-mc {
-    grid-area: titre-mc;
-    font-size: 8vh; /* Même taille que ton titre main */
-    text-align: center;
-    font-weight: bold;
-    color: #FF0000;
-    margin-bottom: 2vh;
+.close{
+
+    display: none;
+
 }
 
-/* Description noire comme tes .p1main */
-.desc-mc {
-    grid-area: desc-mc;
-    font-size: 2vw;
-    color: #000;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 4vh;
-}
+button {
 
-/* Formulaire */
-.form-mc {
-    grid-area: form-mc;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 3vh;
-    width: 80%;
-    max-width: 800px;
-    padding: 4vh;
-    border: 2px solid #000; /* Bordure noire comme ton image main */
-    border-radius: 20px; /* Coins un peu arrondis */
-    background-color: #fff;
-}
-
-.input-group-mc {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1vh;
-}
-
-.input-group-mc label {
-    font-size: 1.5vw;
-    font-weight: bold;
-    color: #000;
-}
-
-.input-group-mc input,
-.input-group-mc textarea {
-    padding: 2vh;
-    border: 2px solid #000;
-    font-size: 1.2vw;
-    font-family: inherit;
-    background-color: #f9f9f9;
-    color: #000;
-}
-
-/* Effet au focus */
-.input-group-mc input:focus,
-.input-group-mc textarea:focus {
-    outline: none;
-    border-color: #FF0000; /* Rappel du rouge */
-}
-
-/* Bouton Envoyer */
-.btn-mc {
-    padding: 2vh 4vw;
-    background-color: #FF0000; /* Bouton rouge */
-    color: #FFF;
-    border: 2px solid #000;
-    font-size: 1.5vw;
-    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s ease;
-    justify-self: center; /* Centre le bouton dans le grid */
+
+    background: none;
+
+    border: none;
+
 }
 
-.btn-mc:hover {
-    background-color: #cc0000;
-}
 
-/* Réseaux sociaux */
-.reseaux-mc {
-    grid-area: reseaux-mc;
+
+body {
+
     display: grid;
-    grid-template-rows: auto auto;
-    gap: 2vh;
-    margin-top: 5vh;
+
+    grid-template-rows: auto 1fr;
+
+    grid-template-areas:
+
+        "Header"
+
+        "Main";
+
+    height: 100vh;
+
+    background-color: #fff;
+
+}
+
+
+
+.header {
+
+    grid-area: Header;
+
+    display: grid;
+
+    width: 100%;
+
+    grid-template-rows: auto;
+
+    gap: 1vh;
+
+    grid-template-areas:
+
+        "Bando"
+
+        "Menu";
+
+    background-color: #333;
+
+    color: #fff;
+
+    z-index: 1000;
+
+    padding: 1vh 0;
+
+}
+
+
+
+.bando {
+
+    grid-area: Bando;
+
+    display: grid;
+
+    width: 100%;
+
+    grid-template-columns: 0fr 1fr 1fr;
+
+    grid-template-areas:
+
+        "Burger Titre Logo";
+
+    align-items: center;
+
     place-items: center;
+
+    padding: 0 1vh;
+
+    margin-bottom: 2vh;
+
 }
 
-.sous-titre-mc {
-    font-size: 3vh;
-    color: #000;
-    font-weight: bold;
-}
 
-.liens-reseaux {
+
+.titre {
+
+    grid-area: Titre;
+
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2vw;
-}
 
-.lien-mc {
-    text-decoration: none;
-    color: #000;
+    place-items: center;
+
+    color: #FF0000;
+
     font-weight: bold;
-    font-size: 1.5vw;
-    padding: 1.5vh 2vw;
-    border: 2px solid #000;
+
+    font-size: 4vw;
+
     text-align: center;
-    transition: all 0.3s ease;
+
 }
 
-.lien-mc:hover {
-    background-color: #000;
+
+
+.logo {
+
+    grid-area: Logo;
+
+    display: grid;
+
+    place-items: center;
+
+    width: 6vw;
+
+    height: 6vw;
+
+    border: 2px solid #000;
+
+    border-radius: 50%;
+
+}
+
+
+
+.sidenav {
+
+    grid-area: Menu;
+
+    display: grid;
+
+    padding: 0 2vh;
+
+    gap: 2vh;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
+    grid-template-rows: auto;
+
+    grid-template-areas:
+
+        "Main-m Mq-m Po-m Pe-m Nc-m";
+
+   
+
+}
+
+.main-m {
+
+    grid-area: Main-m;
+
+}
+
+.mq-m {
+
+    grid-area: Mq-m;
+
+}
+
+.po-m {
+
+    grid-area: Po-m;
+
+}
+
+.pe-m {
+
+    grid-area: Pe-m;
+
+}
+
+.nc-m {
+
+    grid-area: Nc-m;
+
+}
+
+.main-m , .nc-m, .po-m, .pe-m, .mq-m {
+
+    display: block;
+
+    font-size: 1vw;
+
+    font-weight: bold;
+
     color: #FFF;
+
+    border: 2px solid #FFF;
+
 }
 
 
-/* --- RESPONSIVE MOBILE --- */
-@media screen and (max-width: 768px) {
-    .container-mc {
-        padding: 4vh 2vw;
+
+.main {
+
+    grid-area: Main;
+
+    width: 100%;
+
+    height: 100%;
+
+    background-color: #f9f9f9;
+
+    overflow-y: auto;
+
+}
+
+
+
+@media (max-width: 600px) {
+
+    .bando {
+
+        grid-area: bando;
+
+        grid-template-columns: 1fr 2fr 1fr; /* Ajuste les colonnes pour les petits écrans */
+
+        grid-template-areas:
+
+            "Burger Titre Logo";
+
+        align-items: center; /* Centre les éléments verticalement */
+
     }
 
-    .titre-mc {
-        font-size: 6vh;
+    .header {
+
+        padding: 1vh 0;
+
+        height: 10vh;
+
+        grid-template-rows: 1fr;
+
+        grid-template-columns: 1fr;
+
+        grid-template-areas: "bando";
+
     }
 
-    .desc-mc {
-        font-size: 3vh;
+   
+
+    .logo {
+
+        height: 6vh;/* Centre le logo verticalement */
+
     }
 
-    .form-mc {
-        width: 95%;
-        padding: 2vh;
+    .titre {
+
+        font-size: 5vh;
+
     }
 
-    .input-group-mc label {
-        font-size: 2.5vh;
+
+
+    .sidenav {
+
+        display: grid;
+
+        grid-template-areas: "Main-m ""Mq-m"" Po-m ""Pe-m"" Nc-m";
+
+        grid-template-columns: 1fr;
+
+        gap: 0;
+
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr; /* Une ligne pour chaque bouton */
+
+        position: fixed;
+
+        top: 0;
+
+        left: -100%;
+
+        width: 80%;
+
+        height: 50%;
+
+        top: 10vh;
+
+        background-color: #333;
+
+        z-index: 2000;
+
+        transition: left 0.3s ease;
+
+        grid-template-rows: repeat(5, auto); /* Une ligne par bouton */
+
+        padding: 3vh;
+
     }
 
-    .input-group-mc input,
-    .input-group-mc textarea {
-        font-size: 2vh;
-        padding: 1.5vh;
+    .logo{
+
+        width: 8vh;
+
+        height: 8vh;
+
     }
 
-    .btn-mc {
-        font-size: 2.5vh;
-        padding: 2vh 4vw;
+    .sidenav.active {
+
+        left: 0; /* Fait apparaître le menu latéral */
+
+    }
+
+
+
+    .sidenav button {
+
+        background: none;
+
+        border: #FFF 4px solid;
+
+        color: #fff;
+
+        font-size: 1.2rem;
+
+        margin: 10px 0;
+
+        text-align: center;
+
+        cursor: pointer;
+
+    }
+
+    #nav-icon1 {
+
+        display: grid;
+
+        gap: 5px;
+
+        width: 60px;
+
+        height: 45px;
+
+        position: relative;
+
+        -webkit-transform: rotate(0deg);
+
+        -moz-transform: rotate(0deg);
+
+        -o-transform: rotate(0deg);
+
+        transform: rotate(0deg);
+
+        -webkit-transition: .5s ease-in-out;
+
+        -moz-transition: .5s ease-in-out;
+
+        -o-transition: .5s ease-in-out;
+
+        transition: .5s ease-in-out;
+
+        cursor: pointer;
+
+    }
+
+   
+
+    #nav-icon1 span {
+
+        display: block;
+
+        position: absolute;
+
+        height: 9px;
+
         width: 100%;
+
+        background: #FFF;
+
+        border-radius: 9px;
+
+        opacity: 1;
+
+        left: 0;
+
+        -webkit-transform: rotate(0deg);
+
+        -moz-transform: rotate(0deg);
+
+        -o-transform: rotate(0deg);
+
+        transform: rotate(0deg);
+
+        -webkit-transition: .25s ease-in-out;
+
+        -moz-transition: .25s ease-in-out;
+
+        -o-transition: .25s ease-in-out;
+
+        transition: .25s ease-in-out;
+
     }
 
-    .sous-titre-mc {
-        font-size: 4vh;
+   
+
+    #nav-icon1 span:nth-child(1) {
+
+        top: 0px;
+
     }
 
-    .liens-reseaux {
-        grid-template-columns: 1fr; /* Les liens passent les uns sous les autres */
-        gap: 2vh;
-        width: 100%;
+   
+
+    #nav-icon1 span:nth-child(2) {
+
+        top: 18px;
+
     }
 
-    .lien-mc {
-        font-size: 2.5vh;
-        padding: 2vh;
+   
+
+    #nav-icon1 span:nth-child(3) {
+
+        top: 36px;
+
     }
+
+   
+
+    #nav-icon1.open span:nth-child(1) {
+
+        top: 18px;
+
+        -webkit-transform: rotate(135deg);
+
+        -moz-transform: rotate(135deg);
+
+        -o-transform: rotate(135deg);
+
+        transform: rotate(135deg);
+
+    }
+
+ 
+
+    #nav-icon1.open span:nth-child(2) {
+
+        opacity: 0;
+
+        left: -60px;
+
+    }
+
+ 
+
+    #nav-icon1.open span:nth-child(3) {
+
+        top: 18px;
+
+        -webkit-transform: rotate(-135deg);
+
+        -moz-transform: rotate(-135deg);
+
+        -o-transform: rotate(-135deg);
+
+        transform: rotate(-135deg);
+
+    }
+
 }
