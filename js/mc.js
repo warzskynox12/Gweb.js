@@ -1,12 +1,27 @@
-// Ce code s'assure d'intercepter la soumission du formulaire
-document.addEventListener('submit', function(event) {
-    if (event.target && event.target.id === 'contactForm') {
-        event.preventDefault(); // Empêche le rechargement de la page
-        
-        // Tu peux récupérer les valeurs ici si besoin
-        // const nom = document.getElementById('nom').value;
-        
-        alert("Merci pour votre message ! (Ceci est une démo, le message n'est pas réellement envoyé sans backend).");
-        event.target.reset(); // Vide le formulaire après l'envoi
-    }
-});
+// Cette fonction sera appelée pour initialiser le formulaire
+function initContactForm() {
+    const form = document.getElementById("contact-form");
+    if (!form) return;
+
+    const forminit = new Forminit();
+    const FORM_ID = "myjd8vfr9aq"; // Ton ID Forminit
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const result = document.getElementById("result-mc");
+        result.textContent = "Envoi en cours...";
+
+        const formData = new FormData(e.target);
+        const { data, error } = await forminit.submit(FORM_ID, formData);
+
+        if (error) {
+            result.textContent = "Erreur : " + error.message;
+            result.style.color = "red";
+            return;
+        }
+
+        result.textContent = "Message envoyé avec succès !";
+        result.style.color = "green";
+        e.target.reset();
+    });
+}

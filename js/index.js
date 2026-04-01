@@ -1,9 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. On regarde s'il y a un paramètre "?page=" dans l'URL (ex: ?page=mc)
     const urlParams = new URLSearchParams(window.location.search);
     const pageDemandee = urlParams.get('page');
 
-    // 2. Si un paramètre existe on charge cette page, sinon on charge 'main' par défaut
     if (pageDemandee) {
         loadPage(pageDemandee);
     } else {
@@ -12,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function loadPage(pageName) {
-    // 3. On reconstruit le chemin complet vers ton fichier HTML
     const cheminFichier = `./html/${pageName}.html`;
 
     fetch(cheminFichier)
@@ -21,17 +18,57 @@ function loadPage(pageName) {
             return response.text();
         })
         .then(html => {
-            // On injecte le HTML dans la page
             document.getElementById('content').innerHTML = html;
-            closeNav(); // Ferme le menu après le chargement
+            closeNav(); 
             
-            // 4. On met à jour l'URL sans recharger la page
+            // Mise à jour de l'URL
             window.history.pushState({ page: pageName }, "", `?page=${pageName}`);
+
+            // --- NOUVEAU : Initialisation de Forminit si on est sur la page contact ---
+            if (pageName === 'mc') {
+                initForminit();
+            }
         })
         .catch(error => console.error('Erreur de chargement de la page :', error));
 }
 
-// 5. Gestion du bouton "Précédent" / "Suivant" du navigateur
+// Fonction spécifique pour activer Forminit
+async function initForminit() {
+    const form = document.getElementById("contact-form");
+    if (!form) return;
+
+    // On s'assure que le SDK est chargé (il doit être dans ton index.html)
+    if (typeof Forminit === 'undefined') {
+        console.error("Le SDK Forminit est manquant dans index.html");
+        return;
+    }
+
+    const forminit = new Forminit();
+    const FORM_ID = "myjd8vfr9aq"; // Ton ID personnel
+
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const result = document.getElementById("result-mc");
+        if(result) result.textContent = "Envoi en cours...";
+
+        const formData = new FormData(e.target);
+        const { data, error } = await forminit.submit(FORM_ID, formData);
+
+        if (result) {
+            if (error) {
+                result.textContent = "Erreur : " + error.message;
+                result.style.color = "#FF0000";
+                return;
+            }
+            result.textContent = "Message envoyé avec succès !";
+            result.style.color = "#008000"; // Vert pour le succès
+        }
+        
+        e.target.reset();
+    });
+}
+
 window.addEventListener('popstate', (event) => {
     const pagePrecedente = event.state ? event.state.page : 'main';
     fetch(`./html/${pagePrecedente}.html`)
@@ -39,39 +76,36 @@ window.addEventListener('popstate', (event) => {
         .then(html => {
             document.getElementById('content').innerHTML = html;
             closeNav();
+            // On relance l'init si on revient sur 'mc' via les flèches du navigateur
+            if (pagePrecedente === 'mc') initForminit();
         });
 });
 
-// ==========================================
-// --- TON CODE POUR LE MENU (INCHANGÉ) ---
-// ==========================================
+// --- TON CODE POUR LE MENU ---
 
 const sidenav = document.getElementById("mySidenav");
 const openBtn = document.getElementById("nav-icon1");
-// Sécurité : je déclare closeBtn au cas où pour éviter une erreur JavaScript si l'ID n'existe pas
 const closeBtn = document.getElementById("closeBtn"); 
 
 if (openBtn) {
     openBtn.addEventListener('click', () => {
-        // Utilise toggle pour basculer entre ouvrir et fermer
         sidenav.classList.toggle("active");
-        openBtn.classList.toggle("open"); // Ajoute ou retire la classe "open"
+        openBtn.classList.toggle("open");
     });
 }
 
 if (closeBtn) {
     closeBtn.addEventListener('click', () => {
         sidenav.classList.remove("active");
-        openBtn.classList.remove("open"); // Retire la classe lorsque le menu est fermé
+        openBtn.classList.remove("open");
     });
 }
 
 function closeNav() {
     if (sidenav) sidenav.classList.remove("active");
-    if (openBtn) openBtn.classList.remove("open"); // Retire la classe lorsque le menu est fermé
+    if (openBtn) openBtn.classList.remove("open");
 }
 
-// Code jQuery pour l'animation de l'icône burger
 $(document).ready(function(){
     $('#nav-icon1,#nav-icon2,#nav-icon3,#nav-icon4').click(function(){
         $(this).toggleClass('open');

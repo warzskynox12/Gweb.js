@@ -3,12 +3,13 @@
         <h1 class="titre-mc">Me contacter</h1>
         <p class="p-mc">Laissez-moi un message !</p>
         
-        <form action="https://forminit.com/f/myjd8vfr9aq" method="POST" class="formulaire-mc">
-            <input type="text" name="nom" placeholder="Nom / Prénom" required class="input-mc">
-            <input type="email" name="email" placeholder="Adresse Email" required class="input-mc">
-            <textarea name="message" placeholder="Votre message..." required class="input-mc textarea-mc"></textarea>
+        <form id="contact-form" class="formulaire-mc">
+            <input type="text" name="fi-sender-firstName" placeholder="Nom / Prénom" required class="input-mc">
+            <input type="email" name="fi-sender-email" placeholder="Adresse Email" required class="input-mc">
+            <textarea name="fi-text-message" placeholder="Votre message..." required class="input-mc textarea-mc"></textarea>
             
             <button type="submit" class="btn-mc">Envoyer</button>
+            <div id="result-mc" style="margin-top: 10px; font-weight: bold; color: #FF0000;"></div>
         </form>
     </div>
 
