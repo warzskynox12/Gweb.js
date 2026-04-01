@@ -1,29 +1,28 @@
-/* Conteneur principal - Calqué sur ta D.A. (index.css) */
+/* Conteneur principal */
 .div-mc-main {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Deux colonnes comme ton accueil */
+    grid-template-columns: 1fr 1fr;
     width: 100%;
-    height: 100%; /* Remplit le <main> sans dépasser */
+    height: 100%;
     padding: 2vh 4vw;
     align-items: center;
     justify-content: center;
     box-sizing: border-box;
+    background-color: #f9f9f9; /* Rappel du fond de ton index.css */
 }
 
-/* --- Côté Formulaire --- */
+/* --- Formulaire --- */
 .div-mc-form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     width: 100%;
 }
 
 .titre-mc {
-    font-size: 8vh; /* Même taille que .titre-main */
+    font-size: 8vh;
     color: #FF0000;
     font-weight: bold;
-    text-align: center;
     margin-bottom: 1vh;
 }
 
@@ -31,7 +30,6 @@
     font-size: 2vw;
     color: #000;
     font-weight: bold;
-    text-align: center;
     margin-bottom: 3vh;
 }
 
@@ -43,28 +41,25 @@
     max-width: 500px;
 }
 
-/* Champs de saisie avec tes bordures noires de 2px */
 .input-mc {
     border: 2px solid #000;
     padding: 1.5vh;
     font-size: 1.2vw;
-    background-color: transparent;
+    background-color: #fff;
     color: #000;
     font-weight: bold;
-    font-family: sans-serif;
 }
 
 .textarea-mc {
-    height: 12vh; /* Hauteur limitée pour éviter le scroll */
+    height: 15vh;
     resize: none;
 }
 
 .input-mc:focus {
     outline: none;
-    border-color: #FF0000; /* Rappel du rouge au clic */
+    border-color: #FF0000;
 }
 
-/* Bouton Envoyer / Mailto */
 .btn-mc {
     border: 2px solid #000;
     background-color: #FF0000;
@@ -73,29 +68,27 @@
     font-weight: bold;
     padding: 1.5vh;
     cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    transition: 0.2s;
 }
 
 .btn-mc:hover {
     background-color: #000;
-    transform: scale(1.02);
 }
 
-/* --- Côté Visuel (Image + Réseaux) --- */
+/* --- Visuel --- */
 .div-mc-visuel {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     gap: 4vh;
 }
 
 .img-mc {
-    width: 65%;
-    max-height: 40vh; /* Sécurité pour que l'image ne pousse pas le layout */
-    object-fit: contain;
+    width: 70%;
+    max-height: 45vh;
     border-radius: 20%;
     border: 2px solid #000;
+    object-fit: cover;
 }
 
 .liens-mc {
@@ -110,35 +103,24 @@
     font-weight: bold;
     text-decoration: none;
     padding: 1vh 2vw;
-    transition: all 0.3s ease;
-    text-align: center;
+    transition: 0.3s;
 }
 
 .btn-reseau:hover {
     background-color: #FF0000;
     color: #FFF;
-    border-color: #000;
 }
 
-/* --- RESPONSIVE MOBILE (768px) --- */
+/* --- Mobile --- */
 @media screen and (max-width: 768px) {
     .div-mc-main {
-        grid-template-columns: 1fr; /* Une seule colonne */
-        grid-template-rows: auto auto;
-        height: auto; 
-        gap: 5vh;
+        grid-template-columns: 1fr;
+        height: auto;
         padding: 4vh 2vw;
     }
-
     .titre-mc { font-size: 6vh; }
     .p-mc { font-size: 3vh; }
-    
-    .formulaire-mc { width: 95%; }
-    .input-mc { font-size: 2.5vh; padding: 2vh; }
-    .textarea-mc { height: 15vh; }
-    .btn-mc { font-size: 3vh; }
-    
-    .img-mc { width: 60%; max-height: 30vh; }
-    .liens-mc { width: 90%; justify-content: center; }
-    .btn-reseau { font-size: 2.5vh; flex: 1; }
+    .input-mc, .btn-mc { font-size: 2.5vh; }
+    .img-mc { width: 60%; }
+    .btn-reseau { font-size: 2.2vh; }
 }

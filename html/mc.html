@@ -3,20 +3,23 @@
         <h1 class="titre-mc">Me contacter</h1>
         <p class="p-mc">Laissez-moi un message !</p>
         
-        <form action="mailto:votreadresse@mail.fr" method="POST" enctype="text/plain" class="formulaire-mc">
+        <form action="https://formsubmit.co/tonadresse@mail.fr" method="POST" class="formulaire-mc">
             
-            <input type="text" name="Nom" placeholder="Nom / Prénom" required class="input-mc">
-            <input type="email" name="Email" placeholder="Adresse Email" required class="input-mc">
-            <textarea name="Message" placeholder="Votre message..." required class="input-mc textarea-mc"></textarea>
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://ton-site.ovh">
+
+            <input type="text" name="nom" placeholder="Nom / Prénom" required class="input-mc">
+            <input type="email" name="email" placeholder="Adresse Email" required class="input-mc">
+            <textarea name="message" placeholder="Votre message..." required class="input-mc textarea-mc"></textarea>
             
-            <button type="submit" class="btn-mc">Ouvrir ma messagerie</button>
+            <button type="submit" class="btn-mc">Envoyer</button>
         </form>
     </div>
 
     <div class="div-mc-visuel">
         <img class="img-mc" src="./public/visuel-contact.png" alt="Contact">
         <div class="liens-mc">
-            <a href="https://github.com/gwebjs" target="_blank" class="btn-reseau">GitHub</a>
+            <a href="https://github.com/warzskynox12" target="_blank" class="btn-reseau">GitHub</a>
             <a href="https://discordapp.com/users/761486907430404098" target="_blank" class="btn-reseau">Discord</a>
         </div>
     </div>
